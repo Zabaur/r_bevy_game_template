@@ -66,7 +66,7 @@ fn setup_menu(mut commands: Commands, textures: Res<TextureAssets>) {
                         ..Default::default()
                     },
                     button_colors,
-                    ChangeState(GameState::Playing),
+                    ChangeState(GameState::IslandView),
                 ))
                 .with_children(|parent| {
                     parent.spawn(TextBundle::from_section(

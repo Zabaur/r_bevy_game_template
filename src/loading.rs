@@ -34,4 +34,12 @@ pub struct TextureAssets {
     pub bevy: Handle<Image>,
     #[asset(path = "textures/github.png")]
     pub github: Handle<Image>,
+    // We'll use the bevy logo as a placeholder for now
+    // In a real game, we would have specific textures for these
+    #[asset(path = "textures/bevy.png")]
+    pub town_hall: Handle<Image>,
+    #[asset(path = "textures/bevy.png")]
+    pub power_plant: Handle<Image>,
+    #[asset(path = "textures/bevy.png")]
+    pub water_tower: Handle<Image>,
 }

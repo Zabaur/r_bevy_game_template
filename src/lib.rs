@@ -5,12 +5,22 @@ mod audio;
 mod loading;
 mod menu;
 mod player;
+mod island;
+mod town;
+mod grid;
+mod simulation;
+mod citizen;
 
 use crate::actions::ActionsPlugin;
 use crate::audio::InternalAudioPlugin;
 use crate::loading::LoadingPlugin;
 use crate::menu::MenuPlugin;
 use crate::player::PlayerPlugin;
+use crate::island::IslandPlugin;
+use crate::town::TownPlugin;
+use crate::grid::GridPlugin;
+use crate::simulation::SimulationPlugin;
+use crate::citizen::CitizenPlugin;
 
 use bevy::app::App;
 #[cfg(debug_assertions)]
@@ -25,10 +35,12 @@ enum GameState {
     // During the loading State the LoadingPlugin will load our assets
     #[default]
     Loading,
-    // During this State the actual game logic is executed
-    Playing,
     // Here the menu is drawn and waiting for player interaction
     Menu,
+    // Island view shows the overall island map
+    IslandView,
+    // Town view shows the detailed town simulation
+    TownView,
 }
 
 pub struct GamePlugin;
@@ -41,6 +53,11 @@ impl Plugin for GamePlugin {
             ActionsPlugin,
             InternalAudioPlugin,
             PlayerPlugin,
+            IslandPlugin,
+            TownPlugin,
+            GridPlugin,
+            SimulationPlugin,
+            CitizenPlugin,
         ));
 
         #[cfg(debug_assertions)]
